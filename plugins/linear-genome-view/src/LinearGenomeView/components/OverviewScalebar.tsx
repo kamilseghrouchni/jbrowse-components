@@ -40,8 +40,8 @@ const useStyles = makeStyles()(theme => ({
     backgroundRepeat: 'repeat',
   },
   scalebarContigReverse: {
-    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 9'%3E%3Cpath d='M6 0L0 4.5L6 9' fill='none' stroke='${theme.palette.divider}'/%3E%3C/svg%3E")`,
-    backgroundRepeat: 'repeat',
+    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www. w3.org/2000/svg' viewBox='0 0 15 9'%3E%3Cpath d='M6 0L0 4.5L6 9' fill='none' stroke='${theme.palette.divider}'/%3E%3C/svg%3E")`,
+    backgroundRepeat: 'repeat', 
   },
 
   scalebarRefName: {
@@ -327,6 +327,7 @@ export default observer(function OverviewScalebar({
 
   return (
     <div>
+      {children}
       <OverviewRubberband
         model={model}
         overview={overview}
@@ -338,7 +339,7 @@ export default observer(function OverviewScalebar({
         <svg height={HEADER_BAR_HEIGHT} className={classes.overviewSvg}>
           <Polygon model={model} overview={overview} />
         </svg>
-        {children}
+        
       </div>
     </div>
   )

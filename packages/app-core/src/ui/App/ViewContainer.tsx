@@ -37,11 +37,14 @@ export default observer(function ({
   view,
   onClose,
   onMinimize,
+  children_scalebar,
   children,
+
 }: {
   view: IBaseViewModel
   onClose: () => void
   onMinimize: () => void
+  children_scalebar: React.ReactNode
   children: React.ReactNode
 }) {
   const { classes } = useStyles()
@@ -99,6 +102,7 @@ export default observer(function ({
         <IconButton data-testid="close_view" onClick={onClose}>
           <CloseIcon className={classes.icon} fontSize="small" />
         </IconButton>
+        {children_scalebar}
       </div>
       <Paper>{children}</Paper>
     </Paper>

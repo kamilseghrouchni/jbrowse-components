@@ -12,7 +12,14 @@ import { LinearGenomeViewModel, SPACING, WIDGET_HEIGHT } from '..'
 
 const useStyles = makeStyles()(() => ({
   headerRefName: {
+    '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#4668E2',},
     minWidth: 100,
+    margin: SPACING,
+    backgroundColor: 'white',
+    borderRadius: '8px',
+    boxShadow: '0px 3px 5px rgba(0, 0, 0, 0.2)',
+
   },
 }))
 
@@ -107,12 +114,13 @@ function SearchBox({
       TextFieldProps={{
         variant: 'outlined',
         className: classes.headerRefName,
-        style: { margin: SPACING },
+
         InputProps: {
           style: {
             padding: 0,
             height: WIDGET_HEIGHT,
             background: alpha(theme.palette.background.paper, 0.8),
+
           },
         },
       }}

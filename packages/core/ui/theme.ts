@@ -1,7 +1,15 @@
-import { blue, green, red, grey, orange } from '@mui/material/colors'
+import { indigo, pink, red, blueGrey, deepOrange } from '@mui/material/colors'
 import { createTheme, ThemeOptions } from '@mui/material/styles'
 import type { PaletteAugmentColorOptions } from '@mui/material/styles/createPalette'
 import deepmerge from 'deepmerge'
+
+
+import colors, { cardBoxShadows } from './theme/color';
+import sizes from './theme/elementSizes';
+import sgFonts from './theme/fonts';
+import sgFontSize from './theme/fontSize';
+import typography from './theme/typography';
+
 
 declare module '@mui/material/styles/createPalette' {
   interface Palette {
@@ -16,6 +24,24 @@ declare module '@mui/material/styles/createPalette' {
       T: Palette['primary']
     }
   }
+    interface Palette {
+      progress: Palette['primary'];
+    }
+    interface PaletteOptions {
+      progress: PaletteOptions['primary'];
+    }
+    interface Palette {
+      darkGrey: Palette['primary'];
+    }
+    interface PaletteOptions {
+      darkGrey: PaletteOptions['primary'];
+    }
+    interface Palette {
+      darkTheme: Palette['primary'];
+    }
+    interface PaletteOptions {
+      darkTheme: PaletteOptions['primary'];
+    }
   interface PaletteOptions {
     tertiary?: PaletteOptions['primary']
     quaternary?: PaletteOptions['primary']
@@ -31,11 +57,79 @@ declare module '@mui/material/styles/createPalette' {
 }
 
 const midnight = '#0D233F'
-const grape = '#721E63'
-const forest = '#135560'
-const mandarin = '#FFB11D'
+const grape = colors.backgrounds
+const forest = colors.secondary.main
+const mandarin = colors.secondary.main
 
-const refTheme = createTheme()
+
+
+const refTheme = createTheme({
+  spacing: 10,
+  components: {
+    MuiCardContent: {
+      styleOverrides:{
+        root: {
+          padding: 20,
+        },
+      }
+    },
+    MuiCardActions: {
+      root: {
+        padding: 20,
+      },
+    },
+    MuiCardHeader: {
+      root: {
+        padding: '15px 20px',
+      },
+    },
+    MuiChip: {
+      root: {
+        fontWeight: 'normal',
+        margin: '5px',
+      },
+      sizeSmall: {
+        height: sizes.chip.small.height,
+        fontSize: sgFontSize.chip.small,
+      },
+    },
+    MuiCssBaseline: {
+      '@global': {
+        '@font-face': [sgFonts],
+      },
+    },
+  },
+  palette: {
+    primary: {
+      main: colors.primary.main,
+    },
+    secondary: {
+      main: colors.secondary.main,
+    },
+    success: {
+      main: colors.success.main,
+    },
+    error: {
+      main: colors.error.main,
+    },
+    warning: {
+      main: colors.warning.main,
+    },
+    info: {
+      main: colors.info.main,
+    },
+    progress: {
+      main: colors.progress.main,
+    },
+    darkGrey: {
+      main: colors.darkGrey.main,
+    },
+    darkTheme: {
+      main: colors.darkTheme.main,
+    },
+  },
+  typography,
+});
 
 function stockTheme() {
   return {
@@ -48,10 +142,10 @@ function stockTheme() {
       stopCodon: '#e22',
       startCodon: '#3e3',
       bases: {
-        A: refTheme.palette.augmentColor({ color: green }),
-        C: refTheme.palette.augmentColor({ color: blue }),
-        G: refTheme.palette.augmentColor({ color: orange }),
-        T: refTheme.palette.augmentColor({ color: red }),
+        A: refTheme.palette.augmentColor({ color: customA }),
+        C: refTheme.palette.augmentColor({ color: customC }),
+        G: refTheme.palette.augmentColor({ color: customG }),
+        T: refTheme.palette.augmentColor({ color: customT }),
       },
     },
     components: {
@@ -68,6 +162,19 @@ function stockTheme() {
       },
     },
   }
+}
+
+const customA = {
+  main: '#E3394F'
+}
+const customC = {
+  main: '#5B79E5'
+}
+const customG = {
+  main: '#76B360'
+}
+const customT = {
+  main: '#ECBC3E'
 }
 
 function getDefaultTheme() {
@@ -96,10 +203,10 @@ function getDarkStockTheme() {
       stopCodon: '#e22',
       startCodon: '#3e3',
       bases: {
-        A: refTheme.palette.augmentColor({ color: green }),
-        C: refTheme.palette.augmentColor({ color: blue }),
-        G: refTheme.palette.augmentColor({ color: orange }),
-        T: refTheme.palette.augmentColor({ color: red }),
+        A: refTheme.palette.augmentColor({ color: customA }),
+        C: refTheme.palette.augmentColor({ color:  customC }),
+        G: refTheme.palette.augmentColor({ color: customG }),
+        T: refTheme.palette.augmentColor({ color: customT }),
       },
     },
     components: {
@@ -123,17 +230,17 @@ function getDarkMinimalTheme() {
     name: 'Dark (minimal)',
     palette: {
       mode: 'dark' as const,
-      primary: { main: grey[700] },
-      secondary: { main: grey[800] },
-      tertiary: refTheme.palette.augmentColor({ color: { main: grey[900] } }),
+      primary: { main: blueGrey[700] },
+      secondary: { main: blueGrey[800] },
+      tertiary: refTheme.palette.augmentColor({ color: { main: blueGrey[900] } }),
       quaternary: refTheme.palette.augmentColor({ color: { main: mandarin } }),
       stopCodon: '#e22',
       startCodon: '#3e3',
       bases: {
-        A: refTheme.palette.augmentColor({ color: green }),
-        C: refTheme.palette.augmentColor({ color: blue }),
-        G: refTheme.palette.augmentColor({ color: orange }),
-        T: refTheme.palette.augmentColor({ color: red }),
+        A: refTheme.palette.augmentColor({ color: customA }),
+        C: refTheme.palette.augmentColor({ color: customC }),
+        G: refTheme.palette.augmentColor({ color: customG }),
+        T: refTheme.palette.augmentColor({ color: customT }),
       },
     },
   }
@@ -143,17 +250,17 @@ function getMinimalTheme() {
   return {
     name: 'Light (minimal)',
     palette: {
-      primary: { main: grey[900] },
-      secondary: { main: grey[800] },
-      tertiary: refTheme.palette.augmentColor({ color: { main: grey[900] } }),
+      primary: { main: blueGrey[900] },
+      secondary: { main: blueGrey[800] },
+      tertiary: refTheme.palette.augmentColor({ color: { main: blueGrey[900] } }),
       quaternary: refTheme.palette.augmentColor({ color: { main: mandarin } }),
       stopCodon: '#e22',
       startCodon: '#3e3',
       bases: {
-        A: refTheme.palette.augmentColor({ color: green }),
-        C: refTheme.palette.augmentColor({ color: blue }),
-        G: refTheme.palette.augmentColor({ color: orange }),
-        T: refTheme.palette.augmentColor({ color: red }),
+        A: refTheme.palette.augmentColor({ color: customA }),
+        C: refTheme.palette.augmentColor({ color: customC }),
+        G: refTheme.palette.augmentColor({ color: customG }),
+        T: refTheme.palette.augmentColor({ color: customT }),
       },
     },
   }
