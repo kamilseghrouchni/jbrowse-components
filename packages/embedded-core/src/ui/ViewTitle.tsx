@@ -59,7 +59,7 @@ export default observer(({ view }: { view: IBaseViewModel }) => {
       <div className={classes.grow} />
       <IconButton onClick={() => setDlgOpen(true)}>
         <div style={{ width: 22, height: 22 }}>
-          <Logomark variant="white" />
+          <Logomark variant="sophia" />
         </div>
       </IconButton>
       {dlgOpen ? (
