@@ -17,7 +17,7 @@
   "author": "JBrowse Team",
   "distMain": "dist/index.js",
   "srcMain": "src/index.ts",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "files": [
     "dist",
     "esm"
@@ -67,5 +67,5 @@
   },
   "distModule": "esm/index.js",
   "srcModule": "src/index.ts",
-  "module": ""
+  "module": "esm/index.js"
 }
