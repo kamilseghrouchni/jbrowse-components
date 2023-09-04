@@ -24,24 +24,16 @@ declare module '@mui/material/styles/createPalette' {
       T: Palette['primary']
     }
   }
-    interface Palette {
-      progress: Palette['primary'];
-    }
-    interface PaletteOptions {
-      progress: PaletteOptions['primary'];
-    }
-    interface Palette {
-      darkGrey: Palette['primary'];
-    }
-    interface PaletteOptions {
-      darkGrey: PaletteOptions['primary'];
-    }
-    interface Palette {
-      darkTheme: Palette['primary'];
-    }
-    interface PaletteOptions {
-      darkTheme: PaletteOptions['primary'];
-    }
+  interface Palette {
+    progress: Palette['primary'];
+  }
+
+  interface Palette {
+    darkGrey: Palette['primary'];
+  }
+  interface Palette {
+    darkTheme: Palette['primary'];
+  }
   interface PaletteOptions {
     tertiary?: PaletteOptions['primary']
     quaternary?: PaletteOptions['primary']
@@ -57,79 +49,13 @@ declare module '@mui/material/styles/createPalette' {
 }
 
 const midnight = '#0D233F'
-const grape = colors.backgrounds
+const grape = colors.background
 const forest = colors.secondary.main
 const mandarin = colors.secondary.main
 
 
 
-const refTheme = createTheme({
-  spacing: 10,
-  components: {
-    MuiCardContent: {
-      styleOverrides:{
-        root: {
-          padding: 20,
-        },
-      }
-    },
-    MuiCardActions: {
-      root: {
-        padding: 20,
-      },
-    },
-    MuiCardHeader: {
-      root: {
-        padding: '15px 20px',
-      },
-    },
-    MuiChip: {
-      root: {
-        fontWeight: 'normal',
-        margin: '5px',
-      },
-      sizeSmall: {
-        height: sizes.chip.small.height,
-        fontSize: sgFontSize.chip.small,
-      },
-    },
-    MuiCssBaseline: {
-      '@global': {
-        '@font-face': [sgFonts],
-      },
-    },
-  },
-  palette: {
-    primary: {
-      main: colors.primary.main,
-    },
-    secondary: {
-      main: colors.secondary.main,
-    },
-    success: {
-      main: colors.success.main,
-    },
-    error: {
-      main: colors.error.main,
-    },
-    warning: {
-      main: colors.warning.main,
-    },
-    info: {
-      main: colors.info.main,
-    },
-    progress: {
-      main: colors.progress.main,
-    },
-    darkGrey: {
-      main: colors.darkGrey.main,
-    },
-    darkTheme: {
-      main: colors.darkTheme.main,
-    },
-  },
-  typography,
-});
+const refTheme = createTheme();
 
 function stockTheme() {
   return {
@@ -204,7 +130,7 @@ function getDarkStockTheme() {
       startCodon: '#3e3',
       bases: {
         A: refTheme.palette.augmentColor({ color: customA }),
-        C: refTheme.palette.augmentColor({ color:  customC }),
+        C: refTheme.palette.augmentColor({ color: customC }),
         G: refTheme.palette.augmentColor({ color: customG }),
         T: refTheme.palette.augmentColor({ color: customT }),
       },
@@ -295,8 +221,8 @@ function createDefaultProps(theme?: ThemeOptions): ThemeOptions {
             const { theme } = props
             return theme.palette.mode === 'dark'
               ? {
-                  color: theme.palette.text.primary,
-                }
+                color: theme.palette.text.primary,
+              }
               : undefined
           },
         },
@@ -418,11 +344,11 @@ function createDefaultProps(theme?: ThemeOptions): ThemeOptions {
           root: ({ theme }) => {
             return theme.palette.mode === 'dark'
               ? {
+                color: theme.palette.text.secondary,
+                '&.Mui-checked': {
                   color: theme.palette.text.secondary,
-                  '&.Mui-checked': {
-                    color: theme.palette.text.secondary,
-                  },
-                }
+                },
+              }
               : undefined
           },
         },
@@ -439,11 +365,11 @@ function createDefaultProps(theme?: ThemeOptions): ThemeOptions {
           root: ({ theme }) => {
             return theme.palette.mode === 'dark'
               ? {
+                color: theme.palette.text.secondary,
+                '&.Mui-checked': {
                   color: theme.palette.text.secondary,
-                  '&.Mui-checked': {
-                    color: theme.palette.text.secondary,
-                  },
-                }
+                },
+              }
               : undefined
           },
         },
@@ -462,11 +388,11 @@ function createDefaultProps(theme?: ThemeOptions): ThemeOptions {
           root: ({ theme }) => {
             return theme.palette.mode === 'dark'
               ? {
+                color: theme.palette.text.secondary,
+                '&.Mui-focused': {
                   color: theme.palette.text.secondary,
-                  '&.Mui-focused': {
-                    color: theme.palette.text.secondary,
-                  },
-                }
+                },
+              }
               : undefined
           },
         },
