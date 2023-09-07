@@ -24,24 +24,6 @@ declare module '@mui/material/styles/createPalette' {
       T: Palette['primary']
     }
   }
-    interface Palette {
-      progress: Palette['primary'];
-    }
-    interface PaletteOptions {
-      progress: PaletteOptions['primary'];
-    }
-    interface Palette {
-      darkGrey: Palette['primary'];
-    }
-    interface PaletteOptions {
-      darkGrey: PaletteOptions['primary'];
-    }
-    interface Palette {
-      darkTheme: Palette['primary'];
-    }
-    interface PaletteOptions {
-      darkTheme: PaletteOptions['primary'];
-    }
   interface PaletteOptions {
     tertiary?: PaletteOptions['primary']
     quaternary?: PaletteOptions['primary']
@@ -56,80 +38,13 @@ declare module '@mui/material/styles/createPalette' {
   }
 }
 
+
 const midnight = '#0D233F'
 const grape = colors.backgrounds
 const forest = colors.secondary.main
 const mandarin = colors.secondary.main
 
-
-
-const refTheme = createTheme({
-  spacing: 10,
-  components: {
-    MuiCardContent: {
-      styleOverrides:{
-        root: {
-          padding: 20,
-        },
-      }
-    },
-    MuiCardActions: {
-      root: {
-        padding: 20,
-      },
-    },
-    MuiCardHeader: {
-      root: {
-        padding: '15px 20px',
-      },
-    },
-    MuiChip: {
-      root: {
-        fontWeight: 'normal',
-        margin: '5px',
-      },
-      sizeSmall: {
-        height: sizes.chip.small.height,
-        fontSize: sgFontSize.chip.small,
-      },
-    },
-    MuiCssBaseline: {
-      '@global': {
-        '@font-face': [sgFonts],
-      },
-    },
-  },
-  palette: {
-    primary: {
-      main: colors.primary.main,
-    },
-    secondary: {
-      main: colors.secondary.main,
-    },
-    success: {
-      main: colors.success.main,
-    },
-    error: {
-      main: colors.error.main,
-    },
-    warning: {
-      main: colors.warning.main,
-    },
-    info: {
-      main: colors.info.main,
-    },
-    progress: {
-      main: colors.progress.main,
-    },
-    darkGrey: {
-      main: colors.darkGrey.main,
-    },
-    darkTheme: {
-      main: colors.darkTheme.main,
-    },
-  },
-  typography,
-});
+const refTheme = createTheme()
 
 function stockTheme() {
   return {

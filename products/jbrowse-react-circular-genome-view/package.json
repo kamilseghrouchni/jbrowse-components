@@ -41,7 +41,7 @@
     "@emotion/cache": "^11.7.1",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
-    "@jbrowse/core": "^2.6.3",
+    "@jbrowse/core": "file:/Users/kamil.seghrouchni/Desktop/Visium/Projects/Sophia/front-end/jbrowse-components/packages/core",
     "@jbrowse/embedded-core": "^2.6.3",
     "@jbrowse/plugin-authentication": "^2.6.3",
     "@jbrowse/plugin-circular-view": "^2.6.3",
